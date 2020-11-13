@@ -1,2 +1,2 @@
-# developers_tests
-A collection of tests to new devs
+# 1
+En el siguiente script escrito en typescript se utiliza para traer un user de una api ficticia y hacer una operación con el nombre de dicho user:
