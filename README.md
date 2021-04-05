@@ -125,3 +125,40 @@ const processServerFile = async () => {
 El problema es que al validar el directorio en la máquina que corre esta función, nos dimos cuenta de que a veces no se borra el archivo al terminar la función.
 La razón es por que truena ya sea la función de descarga o la de procesar y por lo tanto nunca llega a la parte de borrar.
 ¿Cómo aseguramos que siempre se limpie el directorio, incluso cuando falle alguna parte de la función?
+
+## 5
+Imagina el siguiente caso:
+
+Se tiene una base de datos no relacional que puede verse con un Json, el siguiente es un ejemplo de dicha base:
+
+```json
+{
+    "Stores": {
+        "storeId1": {
+            "name": "Store1",
+            "Products": {
+                "productId1": {
+                    "name": "Milk 1",
+                    "price": 23.0
+                },
+                "productId2": {
+                    "name": "Milk 2",
+                    "price": 50.0
+                }
+            }
+        }
+    }
+}
+```
+
+La estructura de dicha base siempre es: /${COLLECTION}/${ID}/content
+Donde COLLECTION es en nuestro ejemplo: Stores, ID son identificadores de cada elemento del collection y content es un object que puede contener props normales o nuevas collections como es el caso de "Products", esta estructura puede estar arbitrariamente nesteada.
+
+Dada esta estructura de base de datos, requerimos poder agregar elementos a cualquier COLLECTION mediante una tabla de excel.
+
+Para ello, se requiere dos funciones escritas en javascript, una que tome como entrada el json de la base de datos y genere un archivo excel que tenga la estructura y datos del json representados en tablas y la otra funcion tome el path al archivo excel y retorne el json en base a la informacion en excel.
+
+Se dejan url a ejemplo de json y su correspondiente excel:
+
+https://apphive-test-examples.s3.amazonaws.com/database1.json
+https://apphive-test-examples.s3.amazonaws.com/excel1.xlsx
