@@ -162,3 +162,5 @@ Se dejan url a ejemplo de json y su correspondiente excel:
 
 https://apphive-test-examples.s3.amazonaws.com/database1.json
 https://apphive-test-examples.s3.amazonaws.com/excel1.xlsx
+
+### NOTA: El programa debe funcionar con cualquier json que tenga la estructura indicada, no solo con el ejemplo
