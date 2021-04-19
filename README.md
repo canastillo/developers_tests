@@ -37,6 +37,8 @@ type User = { id: number; displayName: string }
 ```
 Con lo cual, naturalmente el script falla, que sugieres modificar en el script no solo para que no falle con el nuevo shape, sino que valide el shape del user antes de procesarlo?
 
+### Nota: No tenemos control de la api, solo del codigo presentado
+
 ## 2
 Dados los siguientes types:
 
