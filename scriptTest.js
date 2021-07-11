@@ -45,7 +45,24 @@ const rootNode = {
  * @param nodeName The name to search
  * @returns undefined when no node is found or the founded node
  */
-const searchInNodeByName = (node, nodeName) => undefined
+
+const searchInNodeByName = (node, nodeName) => {
+    if (node.name === nodeName) {
+        return node
+    }
+
+    let found
+    
+    if(node.children) {
+        for (child in node.children) {
+            found = searchInNodeByName(node.children[child], nodeName)
+
+            if(found) { 
+                return found
+            }
+        }
+    }
+}
 // HERE ENDS WHAT YOU CAN MODIFY
 
 const valueIsRecord = (value) => value !== null
